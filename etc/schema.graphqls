@@ -1,0 +1,107 @@
+# Landofcoder
+#
+# NOTICE OF LICENSE
+#
+# This source file is subject to the Landofcoder.com license that is
+# available through the world-wide-web at this URL:
+# https://landofcoder.com/LICENSE.txt
+#
+# DISCLAIMER
+#
+# Do not edit or add to this file if you wish to upgrade this extension to newer
+# version in the future.
+#
+# @category    Landofcoder
+# @package     Ves_TestimonialGraphQl
+# @copyright   Copyright (c) Landofcoder (https://landofcoder.com/)
+# @license     https://landofcoder.com/LICENSE.txt
+
+enum UrlRewriteEntityTypeEnum {
+    VES_TESTIMONIAL
+}
+
+type Query {
+    lofTestimonialById(
+        testimonial_id: Int! @doc(description: "Current Testimonial id")
+    ): Testimonial @resolver(class: "\\Ves\\TestimonialGraphQl\\Model\\Resolver\\TestimonialById") @doc(description: "Get testimonial by ID")
+    lofTestimonialList(
+        filter: TestimonialFilterInput @doc(description: "Identifies which question attributes to search for and return."),
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):Testimonials @resolver(class: "\\Ves\\TestimonialGraphQl\\Model\\Resolver\\Testimonials") @doc(description: "The testimonial query searches for testimonials that match the criteria specified")
+    lofTestimonialCategoryById(
+        category_id: Int! @doc(description: "Current Testimonial Category id")
+    ): TestimonialCategory @resolver(class: "\\Ves\\TestimonialGraphQl\\Model\\Resolver\\CategoryById") @doc(description: "Get testimonial category by ID")
+    lofTestimonialCategoryList(
+        filter: TestimonialCategoryFilterInput @doc(description: "Identifies which question attributes to search for and return."),
+        pageSize: Int = 5 @doc(description: "Specifies the maximum number of results to return at once. This attribute is optional."),
+        currentPage: Int = 1 @doc(description: "Specifies which page of results to return. The default value is 1."),
+    ):TestimonialCategories @resolver(class: "\\Ves\\TestimonialGraphQl\\Model\\Resolver\\Categories") @doc(description: "The categories query searches for testimonials that match the criteria specified")
+}
+
+type Testimonial {
+    testimonial_id: String @doc(description: "Testimonial ID")
+    nick_name: String @doc(description: "Nick Name")
+    email: String @doc(description: "Email")
+    image: String @doc(description: "Image")
+    company_address: String @doc(description: "Company Address")
+    company_name: String @doc(description: "Company Name")
+    company_website: String @doc(description: "Company Website")
+    position: String @doc(description: "Position")
+    linkedin: String @doc(description: "linkedin")
+    facebook: String @doc(description: "facebook")
+    twitter: String @doc(description: "twitter")
+    youtube: String @doc(description: "youtube")
+    vimeo: String @doc(description: "vimeo")
+    googleplus: String @doc(description: "googleplus")
+    address: String @doc(description: "address")
+    testimonial: String @doc(description: "testimonial")
+    create_time: String @doc(description: "create_time")
+    rating: String @doc(description: "rating")
+    job: String @doc(description: "job")
+    is_active: String @doc(description: "is_active")
+    title: String @doc(description: "title")
+    stores: String @doc(description: "stores")
+    categories: String @doc(description: "categories")
+    products: String @doc(description: "products")
+}
+
+type Testimonials {
+    total_count: Int @doc(description: "The number of Testimonials returned")
+    items: [Testimonial] @doc(description: "An array of testimonials that match the specified search criteria")
+}
+
+input TestimonialFilterInput {
+    testimonial_id: FilterTypeInput @doc(description: "Testimonial ID")
+    nick_name: FilterTypeInput @doc(description: "Name")
+    email: FilterTypeInput @doc(description: "Email")
+    position: FilterTypeInput @doc(description: "Position")
+    rating: FilterTypeInput @doc(description: "Rating")
+    title: FilterTypeInput @doc(description: "Title")
+    is_active: FilterTypeInput @doc(description: "Status")
+    create_time: FilterTypeInput @doc(description: "Create time")
+    stores: FilterTypeInput @doc(description: "Stores")
+    categories: FilterTypeInput @doc(description: "Categories")
+    products: FilterTypeInput @doc(description: "Products")
+    or: TestimonialFilterInput @doc(description: "The keyword required to perform a logical OR comparison")
+}
+
+type TestimonialCategory {
+    category_id: String @doc(description: "Testimonial Category ID")
+    name: String @doc(description: "Name")
+    create_time: String @doc(description: "create_time")
+    is_active: String @doc(description: "is_active")
+}
+
+type TestimonialCategories {
+    total_count: Int @doc(description: "The number of Testimonial Categories returned")
+    items: [TestimonialCategory] @doc(description: "An array of testimonial categories that match the specified search criteria")
+}
+
+input TestimonialCategoryFilterInput {
+    category_id: FilterTypeInput @doc(description: "Testimonial Category ID")
+    name: FilterTypeInput @doc(description: "Name")
+    is_active: FilterTypeInput @doc(description: "Status")
+    create_time: FilterTypeInput @doc(description: "Create time")
+    or: TestimonialCategoryFilterInput @doc(description: "The keyword required to perform a logical OR comparison")
+}
