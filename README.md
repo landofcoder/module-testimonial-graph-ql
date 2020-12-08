@@ -1,6 +1,6 @@
 # Mage2 Module Ves TestimonialGraphQl
 
-    ``lof/module-productlabelgraphql``
+    ``landofcoder/module-testimonial-graph-ql``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -33,35 +33,3 @@ magento 2 product label graphql extension
  - enable the module by running `php bin/magento module:enable Ves_TestimonialGraphQl`
  - apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
-
-
-## Configuration
-
-
-
-
-## Specifications
-
- - Model
-	- Label
-
- - API Endpoint
-	- GET - Ves\TestimonialGraphQl\Api\Ves_labelsManagementInterface > Ves\TestimonialGraphQl\Model\Ves_labelsManagement
-
- - API Endpoint
-	- POST - Ves\TestimonialGraphQl\Api\Ves_labelsManagementInterface > Ves\TestimonialGraphQl\Model\Ves_labelsManagement
-
- - API Endpoint
-	- PUT - Ves\TestimonialGraphQl\Api\Ves_labelsManagementInterface > Ves\TestimonialGraphQl\Model\Ves_labelsManagement
-
- - API Endpoint
-	- GET - Ves\TestimonialGraphQl\Api\Ves_labelManagementInterface > Ves\TestimonialGraphQl\Model\Ves_labelManagement
-
- - API Endpoint
-	- DELETE - Ves\TestimonialGraphQl\Api\Ves_labelsManagementInterface > Ves\TestimonialGraphQl\Model\Ves_labelsManagement
-
-
-## Attributes
-
-
-
