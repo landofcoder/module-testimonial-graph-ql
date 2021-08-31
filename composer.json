@@ -13,7 +13,6 @@
     "minimum-stability": "dev",
     "version": "1.0.0",
     "require": {
-        "landofcoder/module-testimonial": "*"
     },
     "autoload": {
         "psr-4": {
